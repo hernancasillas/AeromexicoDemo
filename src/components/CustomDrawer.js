@@ -1,9 +1,8 @@
 import React from "react";
-import { View, TouchableOpacity, StyleSheet } from "react-native";
+import { View, TouchableOpacity, StyleSheet, Image } from "react-native";
 import { Avatar, Title, Drawer, Text } from "react-native-paper";
 import { DrawerContentScrollView, DrawerItem } from "@react-navigation/drawer";
 import { useEffect, useState, useCallback } from "react";
-import Ionicons from "react-native-vector-icons/Ionicons";
 import Colors from "../constants/Colors";
 import { MontserratRegularText } from "./StyledText";
 
@@ -42,10 +41,10 @@ const CustomDrawerContent = (props) => {
           <Drawer.Section style={styles.drawerSection} showDivider={false}>
             <Drawer.Item
               icon={({ color, size }) => (
-                <Ionicons
-                  name="home-outline"
-                  color={Colors.white}
-                  size={size}
+                <Image
+                  source={require("../assets/icons/home.png")}
+                  style={{ width: size, height: size }}
+                  resizeMode="contain"
                 />
               )}
               label={
