@@ -35,7 +35,6 @@ export const HomeScreen = ({ navigation }) => {
   };
 
   const showToast = () => {
-    console.log("showing toast");
     Toast.show({
       type: "success",
       text1: "Cupon copiado.",

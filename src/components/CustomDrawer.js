@@ -1,8 +1,8 @@
 import React from "react";
 import { View, TouchableOpacity, StyleSheet, Image } from "react-native";
 import { Avatar, Title, Drawer, Text } from "react-native-paper";
-import { DrawerContentScrollView, DrawerItem } from "@react-navigation/drawer";
-import { useEffect, useState, useCallback } from "react";
+import { DrawerContentScrollView } from "@react-navigation/drawer";
+import { useState } from "react";
 import Colors from "../constants/Colors";
 import { MontserratRegularText } from "./StyledText";
 
@@ -16,20 +16,13 @@ const CustomDrawerContent = (props) => {
       <DrawerContentScrollView {...props}>
         <View style={styles.drawerContent}>
           <View style={styles.userInfoSection}>
-            <TouchableOpacity style={{ flexDirection: "row", marginTop: 15 }}>
+            <TouchableOpacity style={styles.avatarSection}>
               <Avatar.Image
                 source={require("../assets/icons/iconHD.png")}
-                style={{ backgroundColor: Colors.primaryColor }}
+                style={styles.avatar}
                 size={50}
               />
-              <View
-                style={{
-                  marginLeft: 15,
-                  flexDirection: "column",
-
-                  width: "70%",
-                }}
-              >
+              <View style={styles.avatarText}>
                 <Title style={styles.title}>¡Bienvenid@!</Title>
                 <Text numberOfLines={1} style={styles.caption}>
                   {"Agencia de Viaje"}
@@ -68,15 +61,8 @@ const CustomDrawerContent = (props) => {
         </View>
       </DrawerContentScrollView>
 
-      <View
-        style={{
-          paddingHorizontal: 30,
-          paddingVertical: Platform.OS == "android" ? 10 : 30,
-        }}
-      >
-        <MontserratRegularText
-          style={{ color: Colors.primaryColor, fontSize: 12 }}
-        >
+      <View style={styles.versionText}>
+        <MontserratRegularText style={styles.versionTextStyle}>
           V. 1.0
         </MontserratRegularText>
       </View>
@@ -126,6 +112,25 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.primaryColor,
     borderRadius: 5,
     marginVertical: 5,
+  },
+  avatarSection: {
+    flexDirection: "row",
+    marginTop: 15,
+  },
+  avatar: { backgroundColor: Colors.primaryColor },
+  avatarText: {
+    marginLeft: 15,
+    flexDirection: "column",
+
+    width: "70%",
+  },
+  versionText: {
+    paddingHorizontal: 30,
+    paddingVertical: Platform.OS == "android" ? 10 : 30,
+  },
+  versionTextStyle: {
+    color: Colors.white,
+    fontSize: 12,
   },
 });
 
