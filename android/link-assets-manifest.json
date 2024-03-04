@@ -1,0 +1,33 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/assets/fonts/Coda-Regular.ttf",
+      "sha1": "7c9f15c4669e35bf47a9635949114e0c927a066d"
+    },
+    {
+      "path": "src/assets/fonts/Montserrat-Bold.ttf",
+      "sha1": "98c66622226025f539568865af96df5175e2979c"
+    },
+    {
+      "path": "src/assets/fonts/Montserrat-Regular.ttf",
+      "sha1": "bb895d19b8a1fbe1c57fc89cac5da82fdc8fdef4"
+    },
+    {
+      "path": "src/assets/fonts/Montserrat-SemiBold.ttf",
+      "sha1": "0754a3a23d8d68b0f0558df3109e0df86e968f24"
+    },
+    {
+      "path": "src/assets/fonts/NeueHaasUnica-Bold.ttf",
+      "sha1": "68fe1915cb4112f2ac6b536c18dc03bcc44accf0"
+    },
+    {
+      "path": "src/assets/fonts/NeueHaasUnica-Light.ttf",
+      "sha1": "e0b76a6ce13597658873796eb5d315e4542c15f1"
+    },
+    {
+      "path": "src/assets/fonts/NeueHaasUnica-Medium.ttf",
+      "sha1": "5439496975162a5373266ba0b56f366a0aac9832"
+    }
+  ]
+}
