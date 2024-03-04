@@ -12,15 +12,15 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		7699B88040F8A987B510C191 /* libPods-AeromexicoDemo-AeromexicoDemoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-AeromexicoDemo-AeromexicoDemoTests.a */; };
-		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		7DB222E283704900B3E1C43F /* Coda-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 19EECD30E59D47C19FD7B78F /* Coda-Regular.ttf */; };
+		3988D790CBC54AF4962F3AE2 /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 95B35F0BCB924E3188E12BF2 /* Montserrat-SemiBold.ttf */; };
+		7050FDAD337547BB8B8C35BC /* NeueHaasUnica-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C4106DA01AEB4754A677687F /* NeueHaasUnica-Medium.ttf */; };
 		74E48DCC1B8E40C889F3760F /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2CE3D6A60FF84859BB0A6413 /* Montserrat-Bold.ttf */; };
+		7699B88040F8A987B510C191 /* libPods-AeromexicoDemo-AeromexicoDemoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-AeromexicoDemo-AeromexicoDemoTests.a */; };
+		7DB222E283704900B3E1C43F /* Coda-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 19EECD30E59D47C19FD7B78F /* Coda-Regular.ttf */; };
+		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		8BB0A1F39D2E4A8B9F541E53 /* NeueHaasUnica-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 00573D474F1A410C9295D148 /* NeueHaasUnica-Light.ttf */; };
 		9AB73C598B3A4618B04F676C /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4FE1FA8747E94C63A43B9518 /* Montserrat-Regular.ttf */; };
 		DEC80E62CA4B4C37922C4836 /* NeueHaasUnica-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F55497E57E4340C98FFCC380 /* NeueHaasUnica-Bold.ttf */; };
-		7050FDAD337547BB8B8C35BC /* NeueHaasUnica-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C4106DA01AEB4754A677687F /* NeueHaasUnica-Medium.ttf */; };
-		8BB0A1F39D2E4A8B9F541E53 /* NeueHaasUnica-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 00573D474F1A410C9295D148 /* NeueHaasUnica-Light.ttf */; };
-		3988D790CBC54AF4962F3AE2 /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 95B35F0BCB924E3188E12BF2 /* Montserrat-SemiBold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		00573D474F1A410C9295D148 /* NeueHaasUnica-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "NeueHaasUnica-Light.ttf"; path = "../src/assets/fonts/NeueHaasUnica-Light.ttf"; sourceTree = "<group>"; };
 		00E356EE1AD99517003FC87E /* AeromexicoDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AeromexicoDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* AeromexicoDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AeromexicoDemoTests.m; sourceTree = "<group>"; };
@@ -43,21 +44,20 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = AeromexicoDemo/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = AeromexicoDemo/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = AeromexicoDemo/main.m; sourceTree = "<group>"; };
+		19EECD30E59D47C19FD7B78F /* Coda-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Coda-Regular.ttf"; path = "../src/assets/fonts/Coda-Regular.ttf"; sourceTree = "<group>"; };
 		19F6CBCC0A4E27FBF8BF4A61 /* libPods-AeromexicoDemo-AeromexicoDemoTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AeromexicoDemo-AeromexicoDemoTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2CE3D6A60FF84859BB0A6413 /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-Bold.ttf"; path = "../src/assets/fonts/Montserrat-Bold.ttf"; sourceTree = "<group>"; };
 		3B4392A12AC88292D35C810B /* Pods-AeromexicoDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AeromexicoDemo.debug.xcconfig"; path = "Target Support Files/Pods-AeromexicoDemo/Pods-AeromexicoDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		4FE1FA8747E94C63A43B9518 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-Regular.ttf"; path = "../src/assets/fonts/Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-AeromexicoDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AeromexicoDemo.release.xcconfig"; path = "Target Support Files/Pods-AeromexicoDemo/Pods-AeromexicoDemo.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-AeromexicoDemo-AeromexicoDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AeromexicoDemo-AeromexicoDemoTests.debug.xcconfig"; path = "Target Support Files/Pods-AeromexicoDemo-AeromexicoDemoTests/Pods-AeromexicoDemo-AeromexicoDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-AeromexicoDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AeromexicoDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = AeromexicoDemo/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-AeromexicoDemo-AeromexicoDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AeromexicoDemo-AeromexicoDemoTests.release.xcconfig"; path = "Target Support Files/Pods-AeromexicoDemo-AeromexicoDemoTests/Pods-AeromexicoDemo-AeromexicoDemoTests.release.xcconfig"; sourceTree = "<group>"; };
+		95B35F0BCB924E3188E12BF2 /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Montserrat-SemiBold.ttf"; path = "../src/assets/fonts/Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
+		C4106DA01AEB4754A677687F /* NeueHaasUnica-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "NeueHaasUnica-Medium.ttf"; path = "../src/assets/fonts/NeueHaasUnica-Medium.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		19EECD30E59D47C19FD7B78F /* Coda-Regular.ttf */ = {isa = PBXFileReference; name = "Coda-Regular.ttf"; path = "../src/assets/fonts/Coda-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		2CE3D6A60FF84859BB0A6413 /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; name = "Montserrat-Bold.ttf"; path = "../src/assets/fonts/Montserrat-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		4FE1FA8747E94C63A43B9518 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; name = "Montserrat-Regular.ttf"; path = "../src/assets/fonts/Montserrat-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		F55497E57E4340C98FFCC380 /* NeueHaasUnica-Bold.ttf */ = {isa = PBXFileReference; name = "NeueHaasUnica-Bold.ttf"; path = "../src/assets/fonts/NeueHaasUnica-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		C4106DA01AEB4754A677687F /* NeueHaasUnica-Medium.ttf */ = {isa = PBXFileReference; name = "NeueHaasUnica-Medium.ttf"; path = "../src/assets/fonts/NeueHaasUnica-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		00573D474F1A410C9295D148 /* NeueHaasUnica-Light.ttf */ = {isa = PBXFileReference; name = "NeueHaasUnica-Light.ttf"; path = "../src/assets/fonts/NeueHaasUnica-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		95B35F0BCB924E3188E12BF2 /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; name = "Montserrat-SemiBold.ttf"; path = "../src/assets/fonts/Montserrat-SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		F55497E57E4340C98FFCC380 /* NeueHaasUnica-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "NeueHaasUnica-Bold.ttf"; path = "../src/assets/fonts/NeueHaasUnica-Bold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +120,20 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		3C3705CC11314ECCB455CDB4 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				19EECD30E59D47C19FD7B78F /* Coda-Regular.ttf */,
+				2CE3D6A60FF84859BB0A6413 /* Montserrat-Bold.ttf */,
+				4FE1FA8747E94C63A43B9518 /* Montserrat-Regular.ttf */,
+				F55497E57E4340C98FFCC380 /* NeueHaasUnica-Bold.ttf */,
+				C4106DA01AEB4754A677687F /* NeueHaasUnica-Medium.ttf */,
+				00573D474F1A410C9295D148 /* NeueHaasUnica-Light.ttf */,
+				95B35F0BCB924E3188E12BF2 /* Montserrat-SemiBold.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
@@ -162,21 +176,6 @@
 			);
 			path = Pods;
 			sourceTree = "<group>";
-		};
-		3C3705CC11314ECCB455CDB4 /* Resources */ = {
-			isa = "PBXGroup";
-			children = (
-				19EECD30E59D47C19FD7B78F /* Coda-Regular.ttf */,
-				2CE3D6A60FF84859BB0A6413 /* Montserrat-Bold.ttf */,
-				4FE1FA8747E94C63A43B9518 /* Montserrat-Regular.ttf */,
-				F55497E57E4340C98FFCC380 /* NeueHaasUnica-Bold.ttf */,
-				C4106DA01AEB4754A677687F /* NeueHaasUnica-Medium.ttf */,
-				00573D474F1A410C9295D148 /* NeueHaasUnica-Light.ttf */,
-				95B35F0BCB924E3188E12BF2 /* Montserrat-SemiBold.ttf */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-			path = "";
 		};
 /* End PBXGroup section */
 
@@ -517,8 +516,12 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = AeromexicoDemo;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -543,7 +546,11 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = AeromexicoDemo;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
@@ -581,7 +588,7 @@
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = i386;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -609,6 +616,7 @@
 				);
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = "$(inherited)";
 				OTHER_CPLUSPLUSFLAGS = (
 					"$(OTHER_CFLAGS)",
 					"-DFOLLY_NO_CONFIG",
@@ -616,7 +624,13 @@
 					"-DFOLLY_USE_LIBCPP=1",
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					" ",
+				);
+				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
+				USE_HERMES = true;
 			};
 			name = Debug;
 		};
@@ -653,7 +667,7 @@
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = i386;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -673,6 +687,7 @@
 					"\"$(inherited)\"",
 				);
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_CFLAGS = "$(inherited)";
 				OTHER_CPLUSPLUSFLAGS = (
 					"$(OTHER_CFLAGS)",
 					"-DFOLLY_NO_CONFIG",
@@ -680,7 +695,13 @@
 					"-DFOLLY_USE_LIBCPP=1",
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					" ",
+				);
+				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
+				USE_HERMES = true;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

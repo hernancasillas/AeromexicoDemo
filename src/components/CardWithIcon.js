@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, Image, TouchableOpacity } from "react-native";
+import { View, Text, Image, TouchableOpacity, Platform } from "react-native";
 import Clipboard from "@react-native-clipboard/clipboard";
 import Colors from "../constants/Colors";
 import { MontserratBoldText, MontserratRegularText } from "./StyledText";
@@ -70,14 +70,13 @@ const CardWithIcon = ({
                   borderWidth: 1,
                   borderStyle: "dashed",
                   borderColor: Colors.primaryColor,
-                  borderTopColor: "white",
                   borderRadius: 10,
                   borderWidth: 1,
                   flexDirection: "row",
                   alignItems: "center",
                   justifyContent: "center",
                   padding: 5,
-                  marginHorizontal: 5,
+                  marginHorizontal: 2,
                 }}
                 onPress={() => {
                   copyToClipboard(coupon);

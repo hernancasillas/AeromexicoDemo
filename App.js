@@ -6,7 +6,6 @@
  */
 import "react-native-gesture-handler";
 import React, { useEffect } from "react";
-import { PropsWithChildren } from "react";
 import {
   SafeAreaView,
   ScrollView,
@@ -31,7 +30,11 @@ function App() {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
-  return <RootNavigator></RootNavigator>;
+  return (
+    <RootNavigator>
+      <StatusBar backgroundColor={Colors.primaryColor} barStyle={"default"} />
+    </RootNavigator>
+  );
 }
 
 const styles = StyleSheet.create({

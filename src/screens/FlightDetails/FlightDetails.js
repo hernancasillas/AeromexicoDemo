@@ -1,5 +1,13 @@
-import React, { memo, useState, useLayoutEffect, useCallback } from "react";
-import { Text, View, TouchableOpacity, Dimensions, Image } from "react-native";
+import React, { useState, useEffect, useRef } from "react";
+import {
+  Text,
+  View,
+  TouchableOpacity,
+  Dimensions,
+  Image,
+  ScrollView,
+  SafeAreaView,
+} from "react-native";
 import Carousel from "react-native-reanimated-carousel";
 import AnimatedDotsCarousel from "react-native-animated-dots-carousel";
 import Barcode from "@kichiyaki/react-native-barcode-generator";
@@ -61,19 +69,12 @@ export const FlightDetails = ({ navigation, route }) => {
     },
   ];
 
-  const increaseIndex = () => {
-    setIndex(Math.min(index + 1, LENGTH - 1));
-  };
-  const decreaseIndex = () => {
-    setIndex(Math.max(index - 1, 0));
-  };
-
   const handleButton = () => {
     navigation.pop();
   };
 
   return (
-    <View style={{ flex: 1 }}>
+    <SafeAreaView style={{ flex: 1 }}>
       <View
         style={{
           borderWidth: 0,
@@ -102,284 +103,299 @@ export const FlightDetails = ({ navigation, route }) => {
           </MontserratBoldText>
         </View>
       </View>
-      <TouchableOpacity
-        style={{
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "space-between",
-          padding: 10,
-          borderWidth: 0,
-          alignItems: "center",
-          width: "22%",
-          margin: 20,
-          backgroundColor: "white",
-          borderRadius: 5,
-          elevation: 2,
-          borderColor: "rgba(0, 0, 0, 0.1)",
-          borderWidth: 1,
-        }}
-        onPress={handleButton}
-      >
-        <Image
-          source={require("../../assets/icons/arrowLeft.png")}
-          style={{ width: 23 }}
-          resizeMode="contain"
-        />
-        <MontserratBoldText style={{ color: Colors.primaryColor }}>
-          Atrás
-        </MontserratBoldText>
-      </TouchableOpacity>
+      <ScrollView style={{ flex: 1 }}>
+        <TouchableOpacity
+          style={{
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "space-between",
+            padding: 10,
+            borderWidth: 0,
+            alignItems: "center",
+            width: "25%",
+            margin: 20,
+            backgroundColor: "white",
+            borderRadius: 5,
+            elevation: 2,
+            borderColor: "rgba(0, 0, 0, 0.1)",
+            borderWidth: 1,
+          }}
+          onPress={handleButton}
+        >
+          <Image
+            source={require("../../assets/icons/arrowLeft.png")}
+            style={{ width: 23 }}
+            resizeMode="contain"
+          />
+          <MontserratBoldText
+            style={{ color: Colors.primaryColor, marginLeft: 5 }}
+          >
+            Atrás
+          </MontserratBoldText>
+        </TouchableOpacity>
 
-      <View style={{ flex: 1 }}>
-        <View style={{ borderWidth: 0 }}>
-          <Carousel
-            loop={false}
-            width={width}
-            height={height / 1.4}
-            autoPlay={false}
-            data={flightsArray}
-            scrollAnimationDuration={100}
-            onSnapToItem={(index) => setIndex(index)}
-            pagingEnabled={true}
-            renderItem={({ item, index }) => (
-              <View
-                style={{
-                  borderWidth: 0,
-                  borderRadius: 20,
-                  marginHorizontal: 20,
-                  marginVertical: 10,
-                  elevation: 5,
-                  backgroundColor: "white",
-                }}
-              >
+        <View style={{ flex: 1 }}>
+          <View style={{ borderWidth: 0 }}>
+            <Carousel
+              loop={false}
+              width={width}
+              height={550}
+              autoPlay={false}
+              data={flightsArray}
+              scrollAnimationDuration={100}
+              onSnapToItem={(index) => setIndex(index)}
+              pagingEnabled={true}
+              renderItem={({ item, index }) => (
                 <View
                   style={{
-                    backgroundColor: "white",
-                    padding: 20,
+                    borderWidth: 0,
                     borderRadius: 20,
+                    marginHorizontal: 20,
+                    marginVertical: 10,
                     elevation: 5,
+                    backgroundColor: "white",
                   }}
                 >
                   <View
                     style={{
-                      flexDirection: "row",
-                      alignItems: "center",
-                      justifyContent: "space-between",
+                      backgroundColor: "white",
+                      padding: 20,
+                      borderRadius: 20,
+                      elevation: 5,
                     }}
                   >
-                    <Image
-                      source={require("../../assets/images/logoav.png")}
-                      style={{ width: 70 }}
-                      resizeMode="contain"
-                    />
-                    <View style={{ alignItems: "flex-end", marginLeft: 120 }}>
-                      <MontserratRegularText>Vuelo</MontserratRegularText>
-                      <MontserratSemiBoldText
-                        style={{ color: Colors.primaryColor, fontSize: 16 }}
-                      >
-                        {item.flight}
-                      </MontserratSemiBoldText>
-                    </View>
-                    <View style={{ alignItems: "flex-end" }}>
-                      <MontserratRegularText>Sala</MontserratRegularText>
-                      <MontserratSemiBoldText
-                        style={{ color: Colors.primaryColor, fontSize: 16 }}
-                      >
-                        {item.gate}
-                      </MontserratSemiBoldText>
-                    </View>
-                  </View>
-
-                  <View
-                    style={{
-                      borderWidth: 0,
-                      flexDirection: "row",
-                      alignItems: "center",
-                      justifyContent: "space-between",
-                      top: 15,
-                    }}
-                  >
-                    <MontserratSemiBoldText
-                      style={{ color: Colors.primaryColor }}
-                    >
-                      {item.originName}
-                    </MontserratSemiBoldText>
-                    <MontserratSemiBoldText
+                    <View
                       style={{
-                        color: Colors.primaryColor,
+                        flexDirection: "row",
+                        alignItems: "center",
+                        justifyContent: "space-between",
                       }}
                     >
-                      {item.destinationName}
-                    </MontserratSemiBoldText>
-                  </View>
-                  <View
-                    style={{
-                      flexDirection: "row",
-                      alignItems: "center",
-                      justifyContent: "space-between",
-                    }}
-                  >
-                    <MontserratSemiBoldText
-                      style={{ fontSize: 32, color: Colors.black }}
-                    >
-                      {item.originAbbreviation}
-                    </MontserratSemiBoldText>
-                    <Image
-                      source={require("../../assets/images/plane.png")}
-                      style={{ width: "50%" }}
-                      resizeMode="contain"
-                    />
-                    <MontserratSemiBoldText
-                      style={{ fontSize: 32, color: Colors.black }}
-                    >
-                      {item.destinationAbbeviation}
-                    </MontserratSemiBoldText>
-                  </View>
-
-                  <View
-                    style={{
-                      flexDirection: "row",
-                      alignItems: "center",
-                      justifyContent: "space-between",
-                    }}
-                  >
-                    <View>
-                      <MontserratRegularText
-                        style={{ fontSize: 12, marginBottom: 5 }}
-                      >
-                        Abordaje
-                      </MontserratRegularText>
-                      <MontserratBoldText
-                        style={{ color: Colors.primaryColor, fontSize: 16 }}
-                      >
-                        {item.boardingTime}
-                      </MontserratBoldText>
-                    </View>
-                    <View style={{ left: -30 }}>
-                      <MontserratRegularText
-                        style={{ fontSize: 12, marginBottom: 5 }}
-                      >
-                        Salida
-                      </MontserratRegularText>
-                      <MontserratBoldText
-                        style={{ color: Colors.primaryColor, fontSize: 16 }}
-                      >
-                        {item.departureTime}
-                      </MontserratBoldText>
-                    </View>
-                    <View>
-                      <MontserratRegularText
-                        style={{
-                          fontSize: 12,
-                          marginBottom: 5,
-                          alignSelf: "flex-end",
-                        }}
-                      >
-                        Aterrizaje
-                      </MontserratRegularText>
-                      <MontserratBoldText
-                        style={{ color: Colors.primaryColor, fontSize: 16 }}
-                      >
-                        {item.landingTime}
-                      </MontserratBoldText>
-                    </View>
-                  </View>
-                  <Image
-                    source={require("../../assets/images/divider.png")}
-                    style={{ marginVertical: 20, width: "100%" }}
-                  />
-                  <View
-                    style={{
-                      flexDirection: "row",
-                      alignItems: "center",
-                      justifyContent: "space-between",
-                    }}
-                  >
-                    <View>
-                      <MontserratRegularText style={{ fontSize: 12 }}>
-                        Pasajero
-                      </MontserratRegularText>
-                      <MontserratBoldText
-                        style={{ color: Colors.primaryColor, fontSize: 16 }}
-                      >
-                        {item.passengerName}
-                      </MontserratBoldText>
+                      <Image
+                        source={require("../../assets/images/logoav.png")}
+                        style={{ width: 70 }}
+                        resizeMode="contain"
+                      />
+                      <View style={{ alignItems: "flex-end", marginLeft: 120 }}>
+                        <MontserratRegularText>Vuelo</MontserratRegularText>
+                        <MontserratSemiBoldText
+                          style={{ color: Colors.primaryColor, fontSize: 16 }}
+                        >
+                          {item.flight}
+                        </MontserratSemiBoldText>
+                      </View>
+                      <View style={{ alignItems: "flex-end" }}>
+                        <MontserratRegularText>Sala</MontserratRegularText>
+                        <MontserratSemiBoldText
+                          style={{ color: Colors.primaryColor, fontSize: 16 }}
+                        >
+                          {item.gate}
+                        </MontserratSemiBoldText>
+                      </View>
                     </View>
 
-                    <View>
-                      <MontserratRegularText style={{ fontSize: 12 }}>
-                        Asiento
-                      </MontserratRegularText>
-                      <MontserratBoldText
+                    <View
+                      style={{
+                        borderWidth: 0,
+                        flexDirection: "row",
+                        alignItems: "center",
+                        justifyContent: "space-between",
+                        top: 15,
+                      }}
+                    >
+                      <MontserratSemiBoldText
+                        style={{ color: Colors.primaryColor }}
+                      >
+                        {item.originName}
+                      </MontserratSemiBoldText>
+                      <MontserratSemiBoldText
                         style={{
                           color: Colors.primaryColor,
-                          fontSize: 16,
-                          alignSelf: "flex-end",
                         }}
                       >
-                        {item.seat}
-                      </MontserratBoldText>
+                        {item.destinationName}
+                      </MontserratSemiBoldText>
+                    </View>
+                    <View
+                      style={{
+                        flexDirection: "row",
+                        alignItems: "center",
+                        justifyContent: "space-between",
+                      }}
+                    >
+                      <MontserratSemiBoldText
+                        style={{ fontSize: 32, color: Colors.black }}
+                      >
+                        {item.originAbbreviation}
+                      </MontserratSemiBoldText>
+                      <Image
+                        source={require("../../assets/images/plane.png")}
+                        style={{ width: "50%" }}
+                        resizeMode="contain"
+                      />
+                      <MontserratSemiBoldText
+                        style={{ fontSize: 32, color: Colors.black }}
+                      >
+                        {item.destinationAbbeviation}
+                      </MontserratSemiBoldText>
+                    </View>
+
+                    <View
+                      style={{
+                        flexDirection: "row",
+                        alignItems: "center",
+                        justifyContent: "space-between",
+                      }}
+                    >
+                      <View>
+                        <MontserratRegularText
+                          style={{ fontSize: 12, marginBottom: 5 }}
+                        >
+                          Abordaje
+                        </MontserratRegularText>
+                        <MontserratBoldText
+                          style={{ color: Colors.primaryColor, fontSize: 16 }}
+                        >
+                          {item.boardingTime}
+                        </MontserratBoldText>
+                      </View>
+                      <View style={{ left: -30 }}>
+                        <MontserratRegularText
+                          style={{ fontSize: 12, marginBottom: 5 }}
+                        >
+                          Salida
+                        </MontserratRegularText>
+                        <MontserratBoldText
+                          style={{ color: Colors.primaryColor, fontSize: 16 }}
+                        >
+                          {item.departureTime}
+                        </MontserratBoldText>
+                      </View>
+                      <View>
+                        <MontserratRegularText
+                          style={{
+                            fontSize: 12,
+                            marginBottom: 5,
+                            alignSelf: "flex-end",
+                          }}
+                        >
+                          Aterrizaje
+                        </MontserratRegularText>
+                        <MontserratBoldText
+                          style={{ color: Colors.primaryColor, fontSize: 16 }}
+                        >
+                          {item.landingTime}
+                        </MontserratBoldText>
+                      </View>
+                    </View>
+                    <Image
+                      source={require("../../assets/images/divider.png")}
+                      style={{ marginVertical: 20, width: "100%" }}
+                    />
+                    <View
+                      style={{
+                        flexDirection: "row",
+                        alignItems: "center",
+                        justifyContent: "space-between",
+                      }}
+                    >
+                      <View>
+                        <MontserratRegularText style={{ fontSize: 12 }}>
+                          Pasajero
+                        </MontserratRegularText>
+                        <MontserratBoldText
+                          style={{ color: Colors.primaryColor, fontSize: 16 }}
+                        >
+                          {item.passengerName}
+                        </MontserratBoldText>
+                      </View>
+
+                      <View>
+                        <MontserratRegularText style={{ fontSize: 12 }}>
+                          Asiento
+                        </MontserratRegularText>
+                        <MontserratBoldText
+                          style={{
+                            color: Colors.primaryColor,
+                            fontSize: 16,
+                            alignSelf: "flex-end",
+                          }}
+                        >
+                          {item.seat}
+                        </MontserratBoldText>
+                      </View>
                     </View>
                   </View>
+                  <Barcode
+                    format="CODE128"
+                    value={item.barcode}
+                    text={item.barcode}
+                    textStyle={{
+                      fontSize: 12,
+                      letterSpacing: 3,
+                      fontFamily: "Coda-Regular",
+                      marginTop: 10,
+                    }}
+                    style={{
+                      marginVertical: 40,
+                      backgroundColor: "transparent",
+                      width: "100%",
+                    }}
+                    height={76}
+                    maxWidth={width / 1.3}
+                  />
                 </View>
-                <Barcode
-                  format="CODE128"
-                  value={item.barcode}
-                  text={item.barcode}
-                  textStyle={{
-                    fontSize: 12,
-                    letterSpacing: 3,
-                    fontFamily: "Coda-Regular",
-                    marginTop: 10,
-                  }}
-                  style={{
-                    marginVertical: 40,
-                    backgroundColor: "transparent",
-                    width: "100%",
-                  }}
-                  height={76}
-                  maxWidth={width / 1.3}
-                />
-              </View>
-            )}
-          />
-          <View
-            style={{
-              borderWidth: 0,
-              alignItems: "center",
-            }}
-          >
-            <AnimatedDotsCarousel
-              length={flightsArray.length}
-              currentIndex={index}
-              maxIndicators={4}
-              interpolateOpacityAndColor={true}
-              activeIndicatorConfig={{
-                color: "grey",
-                margin: 3,
-                opacity: 1,
-                size: 9,
-              }}
-              inactiveIndicatorConfig={{
-                color: "grey",
-                margin: 3,
-                opacity: 0.3,
-                size: 9,
-              }}
-              decreasingDots={[
-                {
-                  config: { color: "white", margin: 3, opacity: 0.5, size: 6 },
-                  quantity: 1,
-                },
-                {
-                  config: { color: "white", margin: 3, opacity: 0.5, size: 4 },
-                  quantity: 1,
-                },
-              ]}
+              )}
             />
+            <View
+              style={{
+                borderWidth: 0,
+                alignItems: "center",
+              }}
+            >
+              <AnimatedDotsCarousel
+                length={flightsArray.length}
+                currentIndex={index}
+                maxIndicators={4}
+                interpolateOpacityAndColor={true}
+                activeIndicatorConfig={{
+                  color: "grey",
+                  margin: 3,
+                  opacity: 1,
+                  size: 9,
+                }}
+                inactiveIndicatorConfig={{
+                  color: "grey",
+                  margin: 3,
+                  opacity: 0.3,
+                  size: 9,
+                }}
+                decreasingDots={[
+                  {
+                    config: {
+                      color: "white",
+                      margin: 3,
+                      opacity: 0.5,
+                      size: 6,
+                    },
+                    quantity: 1,
+                  },
+                  {
+                    config: {
+                      color: "white",
+                      margin: 3,
+                      opacity: 0.5,
+                      size: 4,
+                    },
+                    quantity: 1,
+                  },
+                ]}
+              />
+            </View>
           </View>
         </View>
-      </View>
-    </View>
+        <View style={{ height: 60 }} />
+      </ScrollView>
+    </SafeAreaView>
   );
 };
