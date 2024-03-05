@@ -43,12 +43,14 @@ npx react-native run-android
 ```
 or
 ```
-npx react-native run-ios
+cd ios && pod install
 ```
 then
 ```
-cd ios && pod install
+npx react-native run-ios
 ```
+
+
 
 5. Follow the provided instructions to run the application on an emulator or physical device.
 
