@@ -2,6 +2,18 @@
 
 AeromexicoDemo is a mobile application developed in React Native.
 
+## Environment
+
+```
+node v20.10.0
+```
+```
+npm 10.2.3
+```
+```
+react-native 0.73.5
+```
+
 ## Installation
 
 To run the application in your local environment, follow these steps:
@@ -33,20 +45,14 @@ or
 ```
 npx react-native run-ios
 ```
+then
+```
+cd ios && pod install
+```
 
 5. Follow the provided instructions to run the application on an emulator or physical device.
 
-6. Development environment.
 
-```
-node v20.10.0
-```
-```
-npm 10.2.3
-```
-```
-react-native 0.73.5
-```
 
 
 ## License
