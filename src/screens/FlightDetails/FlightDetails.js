@@ -1,12 +1,15 @@
-import React, { useState, useEffect, useRef } from "react";
+/* eslint-disable react-native/no-inline-styles */
+/* eslint-disable no-shadow */
+/* eslint-disable quotes */
+import React, { useState } from "react";
 import {
-  Text,
   View,
   TouchableOpacity,
   Dimensions,
   Image,
   ScrollView,
   SafeAreaView,
+  StyleSheet,
 } from "react-native";
 import Carousel from "react-native-reanimated-carousel";
 import AnimatedDotsCarousel from "react-native-animated-dots-carousel";
@@ -19,9 +22,8 @@ import {
 } from "../../components/StyledText";
 
 const width = Dimensions.get("window").width;
-const height = Dimensions.get("window").height;
 
-export const FlightDetails = ({ navigation, route }) => {
+export const FlightDetails = ({ navigation }) => {
   const [index, setIndex] = useState(0);
 
   const flightsArray = [
@@ -69,73 +71,32 @@ export const FlightDetails = ({ navigation, route }) => {
     },
   ];
 
+  /**
+   * Function to handle when the user presses the back button
+   */
   const handleButton = () => {
     navigation.pop();
   };
 
   return (
-    <SafeAreaView style={{ flex: 1 }}>
-      <View
-        style={{
-          borderWidth: 0,
-          padding: 10,
-          backgroundColor: Colors.primaryColor,
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "space-between",
-          height: 50,
-        }}
-      >
-        <View
-          style={{
-            flexDirection: "row",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <MontserratBoldText style={{ color: "white", fontSize: 20 }}>
-            Agencia de Viaje
-          </MontserratBoldText>
-          <MontserratBoldText
-            style={{ color: "white", fontSize: 12, top: -10, marginLeft: 5 }}
-          >
-            ®
-          </MontserratBoldText>
-        </View>
-      </View>
-      <ScrollView style={{ flex: 1 }}>
+    <SafeAreaView style={styles.container}>
+      <ScrollView style={styles.container}>
         <TouchableOpacity
-          style={{
-            flexDirection: "row",
-            alignItems: "center",
-            justifyContent: "space-between",
-            padding: 10,
-            borderWidth: 0,
-            alignItems: "center",
-            width: "25%",
-            margin: 20,
-            backgroundColor: "white",
-            borderRadius: 5,
-            elevation: 2,
-            borderColor: "rgba(0, 0, 0, 0.1)",
-            borderWidth: 1,
-          }}
+          style={styles.backButtonContainer}
           onPress={handleButton}
         >
           <Image
             source={require("../../assets/icons/arrowLeft.png")}
-            style={{ width: 23 }}
+            style={styles.backButtonIcon}
             resizeMode="contain"
           />
-          <MontserratBoldText
-            style={{ color: Colors.primaryColor, marginLeft: 5 }}
-          >
+          <MontserratBoldText style={styles.backButtonText}>
             Atrás
           </MontserratBoldText>
         </TouchableOpacity>
 
-        <View style={{ flex: 1 }}>
-          <View style={{ borderWidth: 0 }}>
+        <View style={styles.container}>
+          <View>
             <Carousel
               loop={false}
               width={width}
@@ -145,49 +106,27 @@ export const FlightDetails = ({ navigation, route }) => {
               scrollAnimationDuration={100}
               onSnapToItem={(index) => setIndex(index)}
               pagingEnabled={true}
-              renderItem={({ item, index }) => (
-                <View
-                  style={{
-                    borderWidth: 0,
-                    borderRadius: 20,
-                    marginHorizontal: 20,
-                    marginVertical: 10,
-                    elevation: 5,
-                    backgroundColor: "white",
-                  }}
-                >
-                  <View
-                    style={{
-                      backgroundColor: "white",
-                      padding: 20,
-                      borderRadius: 20,
-                      elevation: 5,
-                    }}
-                  >
-                    <View
-                      style={{
-                        flexDirection: "row",
-                        alignItems: "center",
-                        justifyContent: "space-between",
-                      }}
-                    >
+              renderItem={({ item }) => (
+                <View style={styles.flightCardContainer}>
+                  <View style={styles.flightCardHeaderContainer}>
+                    <View style={styles.rowSpaceBetween}>
                       <Image
                         source={require("../../assets/images/logoav.png")}
-                        style={{ width: 70 }}
+                        style={styles.logo}
                         resizeMode="contain"
                       />
-                      <View style={{ alignItems: "flex-end", marginLeft: 120 }}>
+                      <View style={styles.headerFlightContainer}>
                         <MontserratRegularText>Vuelo</MontserratRegularText>
                         <MontserratSemiBoldText
-                          style={{ color: Colors.primaryColor, fontSize: 16 }}
+                          style={styles.headerFlightValue}
                         >
                           {item.flight}
                         </MontserratSemiBoldText>
                       </View>
-                      <View style={{ alignItems: "flex-end" }}>
+                      <View style={styles.headerGateValue}>
                         <MontserratRegularText>Sala</MontserratRegularText>
                         <MontserratSemiBoldText
-                          style={{ color: Colors.primaryColor, fontSize: 16 }}
+                          style={styles.headerFlightValue}
                         >
                           {item.gate}
                         </MontserratSemiBoldText>
@@ -195,34 +134,21 @@ export const FlightDetails = ({ navigation, route }) => {
                     </View>
 
                     <View
-                      style={{
-                        borderWidth: 0,
-                        flexDirection: "row",
-                        alignItems: "center",
-                        justifyContent: "space-between",
-                        top: 15,
-                      }}
+                      style={[
+                        styles.rowSpaceBetween,
+                        {
+                          top: 15,
+                        },
+                      ]}
                     >
-                      <MontserratSemiBoldText
-                        style={{ color: Colors.primaryColor }}
-                      >
+                      <MontserratSemiBoldText style={styles.headerPrimaryText}>
                         {item.originName}
                       </MontserratSemiBoldText>
-                      <MontserratSemiBoldText
-                        style={{
-                          color: Colors.primaryColor,
-                        }}
-                      >
+                      <MontserratSemiBoldText style={styles.headerPrimaryText}>
                         {item.destinationName}
                       </MontserratSemiBoldText>
                     </View>
-                    <View
-                      style={{
-                        flexDirection: "row",
-                        alignItems: "center",
-                        justifyContent: "space-between",
-                      }}
-                    >
+                    <View style={styles.rowSpaceBetween}>
                       <MontserratSemiBoldText
                         style={{ fontSize: 32, color: Colors.black }}
                       >
@@ -230,60 +156,43 @@ export const FlightDetails = ({ navigation, route }) => {
                       </MontserratSemiBoldText>
                       <Image
                         source={require("../../assets/images/plane.png")}
-                        style={{ width: "50%" }}
+                        style={styles.flightImage}
                         resizeMode="contain"
                       />
-                      <MontserratSemiBoldText
-                        style={{ fontSize: 32, color: Colors.black }}
-                      >
+                      <MontserratSemiBoldText style={styles.cityAbbreviation}>
                         {item.destinationAbbeviation}
                       </MontserratSemiBoldText>
                     </View>
 
-                    <View
-                      style={{
-                        flexDirection: "row",
-                        alignItems: "center",
-                        justifyContent: "space-between",
-                      }}
-                    >
+                    <View style={styles.rowSpaceBetween}>
                       <View>
-                        <MontserratRegularText
-                          style={{ fontSize: 12, marginBottom: 5 }}
-                        >
+                        <MontserratRegularText style={styles.infoLabel}>
                           Abordaje
                         </MontserratRegularText>
-                        <MontserratBoldText
-                          style={{ color: Colors.primaryColor, fontSize: 16 }}
-                        >
+                        <MontserratBoldText style={styles.infoValue}>
                           {item.boardingTime}
                         </MontserratBoldText>
                       </View>
                       <View style={{ left: -30 }}>
-                        <MontserratRegularText
-                          style={{ fontSize: 12, marginBottom: 5 }}
-                        >
+                        <MontserratRegularText style={styles.infoLabel}>
                           Salida
                         </MontserratRegularText>
-                        <MontserratBoldText
-                          style={{ color: Colors.primaryColor, fontSize: 16 }}
-                        >
+                        <MontserratBoldText style={styles.infoValue}>
                           {item.departureTime}
                         </MontserratBoldText>
                       </View>
                       <View>
                         <MontserratRegularText
-                          style={{
-                            fontSize: 12,
-                            marginBottom: 5,
-                            alignSelf: "flex-end",
-                          }}
+                          style={[
+                            styles.infoLabel,
+                            {
+                              alignSelf: "flex-end",
+                            },
+                          ]}
                         >
                           Aterrizaje
                         </MontserratRegularText>
-                        <MontserratBoldText
-                          style={{ color: Colors.primaryColor, fontSize: 16 }}
-                        >
+                        <MontserratBoldText style={styles.infoValue}>
                           {item.landingTime}
                         </MontserratBoldText>
                       </View>
@@ -300,7 +209,7 @@ export const FlightDetails = ({ navigation, route }) => {
                       }}
                     >
                       <View>
-                        <MontserratRegularText style={{ fontSize: 12 }}>
+                        <MontserratRegularText style={styles.infoLabel}>
                           Pasajero
                         </MontserratRegularText>
                         <MontserratBoldText
@@ -311,15 +220,16 @@ export const FlightDetails = ({ navigation, route }) => {
                       </View>
 
                       <View>
-                        <MontserratRegularText style={{ fontSize: 12 }}>
+                        <MontserratRegularText style={styles.infoLabel}>
                           Asiento
                         </MontserratRegularText>
                         <MontserratBoldText
-                          style={{
-                            color: Colors.primaryColor,
-                            fontSize: 16,
-                            alignSelf: "flex-end",
-                          }}
+                          style={[
+                            styles.infoValue,
+                            {
+                              alignSelf: "flex-end",
+                            },
+                          ]}
                         >
                           {item.seat}
                         </MontserratBoldText>
@@ -358,18 +268,8 @@ export const FlightDetails = ({ navigation, route }) => {
                 currentIndex={index}
                 maxIndicators={4}
                 interpolateOpacityAndColor={true}
-                activeIndicatorConfig={{
-                  color: "grey",
-                  margin: 3,
-                  opacity: 1,
-                  size: 9,
-                }}
-                inactiveIndicatorConfig={{
-                  color: "grey",
-                  margin: 3,
-                  opacity: 0.3,
-                  size: 9,
-                }}
+                activeIndicatorConfig={styles.activeIndicator}
+                inactiveIndicatorConfig={styles.inactiveIndicator}
                 decreasingDots={[
                   {
                     config: {
@@ -394,8 +294,84 @@ export const FlightDetails = ({ navigation, route }) => {
             </View>
           </View>
         </View>
-        <View style={{ height: 60 }} />
+        <View style={styles.bottomView} />
       </ScrollView>
     </SafeAreaView>
   );
 };
+
+const styles = StyleSheet.create({
+  container: { flex: 1 },
+  backButtonContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    padding: 10,
+    width: "25%",
+    margin: 20,
+    backgroundColor: Colors.white,
+    borderRadius: 5,
+    elevation: 2,
+    borderColor: "rgba(0, 0, 0, 0.1)",
+    borderWidth: 1,
+    shadowColor: Colors.black,
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.2,
+    shadowRadius: 1.41,
+  },
+  backButtonIcon: { width: 23 },
+  backButtonText: { color: Colors.primaryColor, marginLeft: 5 },
+  headerFlightContainer: { alignItems: "flex-end", marginLeft: 120 },
+  headerFlightValue: { color: Colors.primaryColor, fontSize: 16 },
+  flightCardContainer: {
+    borderWidth: 0,
+    borderRadius: 20,
+    marginHorizontal: 20,
+    marginVertical: 10,
+    elevation: 5,
+    backgroundColor: Colors.white,
+    shadowColor: Colors.black,
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+  },
+  flightCardHeaderContainer: {
+    backgroundColor: Colors.white,
+    padding: 20,
+    borderRadius: 20,
+    elevation: 5,
+  },
+  rowSpaceBetween: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+  },
+  logo: { width: 70 },
+  headerPrimaryText: { color: Colors.primaryColor },
+  flightImage: { width: "50%" },
+  cityAbbreviation: { fontSize: 32, color: Colors.black },
+  infoLabel: { fontSize: 12, marginBottom: 5 },
+  infoValue: { color: Colors.primaryColor, fontSize: 16 },
+  activeIndicator: {
+    color: "grey",
+    margin: 3,
+    opacity: 1,
+    size: 9,
+  },
+  inactiveIndicator: {
+    color: "grey",
+    margin: 3,
+    opacity: 0.3,
+    size: 9,
+  },
+  bottomView: {
+    height: 60,
+  },
+  headerGateValue: { alignItems: "flex-end" },
+});

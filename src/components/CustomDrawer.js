@@ -63,7 +63,7 @@ const CustomDrawerContent = (props) => {
 
       <View style={styles.versionText}>
         <MontserratRegularText style={styles.versionTextStyle}>
-          V. 1.0
+          V. 1.0.0
         </MontserratRegularText>
       </View>
     </View>

@@ -3,13 +3,11 @@ import React from "react";
 import DrawerNavigator from "./Drawer/DrawerNavigator";
 
 const RootNavigator = () => {
-
   return (
     <NavigationContainer
       screenOptions={{ headerShown: false, animationEnabled: false }}
-      //onReady={() => {}}
     >
-          <DrawerNavigator />
+      <DrawerNavigator />
     </NavigationContainer>
   );
 };

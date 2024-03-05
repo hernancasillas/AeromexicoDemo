@@ -1,17 +1,15 @@
-import React, { memo, useState, useEffect, useCallback } from "react";
+/* eslint-disable react-native/no-inline-styles */
+/* eslint-disable quotes */
+import React, { useState, useEffect } from "react";
 import {
-  Text,
   View,
   TouchableOpacity,
-  RefreshControl,
   ScrollView,
-  Platform,
-  Alert,
-  Linking,
   Image,
   Dimensions,
   ImageBackground,
   SafeAreaView,
+  StyleSheet,
 } from "react-native";
 import CardWithIcon from "../../components/CardWithIcon";
 import Colors from "../../constants/Colors";
@@ -19,7 +17,6 @@ import {
   MontserratBoldText,
   NeueHaasBoldText,
   NeueHaasLightText,
-  NeueHaasMediumText,
 } from "../../components/StyledText";
 import Toast from "react-native-toast-message";
 
@@ -29,9 +26,6 @@ export const HomeScreen = ({ navigation }) => {
 
   const handleButton = () => {
     navigation.navigate("FlightDetails");
-  };
-  const handleButtonDrawer = () => {
-    navigation.openDrawer();
   };
 
   const showToast = () => {
@@ -58,47 +52,9 @@ export const HomeScreen = ({ navigation }) => {
   }, []);
 
   return (
-    <SafeAreaView style={{ flex: 1 }}>
-      <View
-        style={{
-          borderWidth: 0,
-          padding: 10,
-          backgroundColor: Colors.primaryColor,
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "space-between",
-          height: 50,
-        }}
-      >
-        <View
-          style={{
-            flexDirection: "row",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <MontserratBoldText style={{ color: "white", fontSize: 20 }}>
-            Agencia de Viaje
-          </MontserratBoldText>
-          <MontserratBoldText
-            style={{ color: "white", fontSize: 12, top: -10, marginLeft: 5 }}
-          >
-            ®
-          </MontserratBoldText>
-        </View>
-        <TouchableOpacity
-          style={{ padding: 10, alignItems: "center" }}
-          onPress={handleButtonDrawer}
-        >
-          <Image
-            source={require("../../assets/icons/bars.png")}
-            resizeMode="contain"
-            style={{ width: 33 }}
-          />
-        </TouchableOpacity>
-      </View>
-      <ScrollView style={{ flex: 1 }}>
-        <View style={{ borderWidth: 0, justifyContent: "flex-start" }}>
+    <SafeAreaView style={styles.container}>
+      <ScrollView style={styles.container}>
+        <View>
           <ImageBackground
             source={require("../../assets/images/dublin.png")}
             style={{
@@ -108,119 +64,74 @@ export const HomeScreen = ({ navigation }) => {
               justifyContent: "center",
             }}
           >
-            <MontserratBoldText style={{ color: "white", fontSize: 50 }}>
+            <MontserratBoldText style={styles.imageTitle}>
               Dublín
             </MontserratBoldText>
           </ImageBackground>
-          <View
-            style={{
-              borderRadius: 20,
-              elevation: 5,
-              backgroundColor: "white",
-
-              padding: 20,
-              width: "80%",
-              alignSelf: "center",
-              top: -35,
-            }}
-          >
-            <View
-              style={{
-                flexDirection: "row",
-                alignItems: "center",
-                justifyContent: "flex-start",
-              }}
-            >
-              <MontserratBoldText style={{ fontSize: 22, color: Colors.black }}>
+          <View style={styles.yourFlightCard}>
+            <View style={styles.rowFlexStart}>
+              <MontserratBoldText style={styles.yourFlightText}>
                 Tu vuelo de mañana
               </MontserratBoldText>
               <TouchableOpacity disabled>
                 <Image
                   source={require("../../assets/images/tooltip-off.png")}
-                  style={{
-                    width: 20,
-                    marginLeft: 10,
-                  }}
+                  style={styles.toolTip}
                   resizeMode="contain"
                 />
               </TouchableOpacity>
             </View>
-            <View
-              style={{
-                flexDirection: "row",
-
-                justifyContent: "space-between",
-                width: "100%",
-                borderWidth: 0,
-                marginTop: 10,
-              }}
-            >
-              <View style={{ borderWidth: 0 }}>
-                <NeueHaasBoldText style={{ color: Colors.black }}>
+            <View style={styles.hoursRow}>
+              <View>
+                <NeueHaasBoldText style={styles.regularText}>
                   06:25
                 </NeueHaasBoldText>
-                <NeueHaasLightText style={{ color: Colors.black }}>
+                <NeueHaasLightText style={styles.regularText}>
                   MEX
                 </NeueHaasLightText>
               </View>
               <Image
                 source={require("../../assets/images/steps-no-heigth.png")}
-                style={{ width: "70%", top: -5 }}
+                style={styles.imageSteps}
                 resizeMode="contain"
               />
-              <View style={{ borderWidth: 0 }}>
-                <NeueHaasBoldText style={{ color: Colors.black }}>
+              <View>
+                <NeueHaasBoldText style={styles.regularText}>
                   23:00
                 </NeueHaasBoldText>
-                <NeueHaasLightText style={{ color: Colors.black }}>
+                <NeueHaasLightText style={styles.regularText}>
                   DUB
                 </NeueHaasLightText>
               </View>
             </View>
             <Image
               source={require("../../assets/images/divider-line.png")}
-              style={{ marginVertical: 20, width: "100%" }}
+              style={styles.imageDivider}
             />
-            <View
-              style={{
-                flexDirection: "row",
-                alignItems: "center",
-                justifyContent: "space-between",
-              }}
-            >
+            <View style={styles.rowSpaceBetween}>
               <TouchableOpacity
-                style={{
-                  paddingHorizontal: 10,
-                  paddingVertical: 15,
-                  borderWidth: 0,
-                  alignItems: "center",
-                  width: "49%",
-                  backgroundColor: Colors.disabled,
-                  borderRadius: 10,
-                }}
+                style={[
+                  styles.buttonContainer,
+                  {
+                    backgroundColor: Colors.disabled,
+                  },
+                ]}
                 disabled
               >
-                <MontserratBoldText
-                  style={{ color: Colors.white, fontSize: 12 }}
-                >
+                <MontserratBoldText style={styles.buttonText}>
                   CAMBIAR VUELO
                 </MontserratBoldText>
               </TouchableOpacity>
               <TouchableOpacity
-                style={{
-                  paddingHorizontal: 10,
-                  paddingVertical: 15,
-                  borderWidth: 0,
-                  alignItems: "center",
-                  width: "49%",
-                  backgroundColor: Colors.primaryColor,
-                  borderRadius: 10,
-                }}
+                style={[
+                  styles.buttonContainer,
+                  {
+                    backgroundColor: Colors.primaryColor,
+                  },
+                ]}
                 onPress={handleButton}
               >
-                <MontserratBoldText
-                  style={{ color: Colors.white, fontSize: 12 }}
-                >
+                <MontserratBoldText style={styles.buttonText}>
                   PASE DE ABORDAR
                 </MontserratBoldText>
               </TouchableOpacity>
@@ -248,9 +159,67 @@ export const HomeScreen = ({ navigation }) => {
             showToast={showToast}
           />
         </View>
-        <View style={{ height: 60 }} />
+        <View style={styles.bottomView} />
       </ScrollView>
       <Toast />
     </SafeAreaView>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  imageTitle: { color: "white", fontSize: 50 },
+  yourFlightCard: {
+    borderRadius: 20,
+    elevation: 5,
+    backgroundColor: "white",
+
+    padding: 20,
+    width: "80%",
+    alignSelf: "center",
+    top: -35,
+  },
+  rowFlexStart: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "flex-start",
+  },
+  yourFlightText: { fontSize: 22, color: Colors.black },
+  toolTip: {
+    width: 20,
+    marginLeft: 10,
+  },
+  hoursRow: {
+    flexDirection: "row",
+
+    justifyContent: "space-between",
+    width: "100%",
+    borderWidth: 0,
+    marginTop: 10,
+  },
+  regularText: { color: Colors.black },
+  imageSteps: { width: "70%", top: -5 },
+  imageDivider: { marginVertical: 20, width: "100%" },
+  rowSpaceBetween: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+  },
+  buttonContainer: {
+    paddingHorizontal: 10,
+    paddingVertical: 15,
+    borderWidth: 0,
+    alignItems: "center",
+    width: "49%",
+
+    borderRadius: 10,
+  },
+  buttonText: {
+    color: Colors.white,
+    fontSize: 12,
+    textAlign: "center",
+  },
+  bottomView: { height: 60 },
+});
